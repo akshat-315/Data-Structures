@@ -1,0 +1,17 @@
+import java.util.*;
+public class Solution {
+    public static List<Integer> MinimumCoins(int n) {
+        List<Integer> ans = new ArrayList<>();
+        int coins[] = {1, 2, 5, 10, 20, 50, 100, 500, 1000};
+
+        int i = coins.length-1;
+
+        while(n>0){
+            while(coins[i] > n) i--;
+            ans.add(coins[i]);
+            n -= coins[i];
+        }
+
+        return ans;
+    }
+}
